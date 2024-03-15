@@ -25,12 +25,12 @@ const Slider = () => {
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
-        <>
-          <div key={event.title}
-            className={`SlideCard SlideCard--${
+          <div key={event.title}>
+          <div className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
           >
+            {/* Ajout d'un alt unique pour chaque images */}
             <img src={event.cover} alt={event.title} />
             <div className="SlideCard__descriptionContainer">
               <div className="SlideCard__description">
@@ -47,12 +47,15 @@ const Slider = () => {
                   key={`${bulletPoint.title}`}
                   type="radio"
                   name="radio-button"
+                  // remplacement de idx par index
                   checked={index === radioIdx}
+                  // ajout de readOnly pour checked without onChange
+                  readOnly
                 />
               ))}
             </div>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
